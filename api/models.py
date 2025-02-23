@@ -53,6 +53,7 @@ class Item(models.Model):
     rating = models.FloatField("Rating", blank=True, null=True)
     totalRating = models.IntegerField("Total Rating", blank=True, null=True)
     discount = models.IntegerField("Discount", blank=True, null=True)
+    color = models.CharField("Color", max_length=100, blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -60,3 +61,18 @@ class Item(models.Model):
     class Meta:
         '''Doc string for meta'''
         verbose_name_plural = "Items"
+
+
+class Order(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    quantity = models.IntegerField("Quantity", blank=True, null=True)
+    total = models.IntegerField("Total", blank=True, null=True)
+    created_at = models.DateTimeField("Created At", auto_now_add=True)
+
+    def __str__(self):
+        return self.user.email
+
+    class Meta:
+        '''Doc string for meta'''
+        verbose_name_plural = "Orders"

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'drf_spectacular',
     'django_filters',
+    'django_redis',
 
     'api',
 ]
@@ -118,7 +119,7 @@ AUTH_USER_MODEL = "api.CustomUser"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'myntra',
+        'NAME': 'myntra_copy',
         'USER': 'postgres',
         'PASSWORD': 'pass123',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
@@ -173,6 +174,8 @@ CACHES = {
         }
     }
 }
+
+CACHE_TTL = 300
 
 
 # Docs settings

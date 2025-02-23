@@ -62,6 +62,8 @@ condense_data()
 
 React frontend to be added in future.
 
+- Cached response using Redis, it decreased response time for subsequent requests from 33 ms to 5 ms approximately.
+
 ### Added Support for MySQL
 
 Install pymysql library
